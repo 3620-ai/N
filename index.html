@@ -2,18 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My Simple Homepage</title>
+  <title>Neuroway Network - Home</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Open Sans", Arial, sans-serif;
+      background-color: #f9f5f0;
+      color: #3a2f1a;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #5d3a00; /* deep brown */
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      display: block;
+      color: #bfa14a; /* gold */
+      text-decoration: none;
+      padding: 0.75rem 1.2rem;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav ul li a:hover, nav ul li a:focus {
+      background-color: #f5de50; /* yellow accent */
+      color: #3a2f1a;
+      outline: none;
+    }
+    /* Dropdown */
+    nav ul li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #5d3a00;
+      display: none;
+      flex-direction: column;
+      min-width: 180px;
+      border-radius: 0 0 6px 6px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    nav ul li:hover ul, nav ul li:focus-within ul {
+      display: flex;
+    }
+    nav ul li ul li a {
+      padding: 0.5rem 1rem;
+      color: #c0c0c0; /* silver */
+      font-weight: 400;
+    }
+    nav ul li ul li a:hover, nav ul li ul li a:focus {
+      background-color: #f5de50;
+      color: #3a2f1a;
+    }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1, h2 {
+      font-family: "Merriweather", serif;
+      color: #5d3a00;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #bfa14a;
+      color: #3a2f1a;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <h1>Welcome to My Website</h1>
-  <p>This is my first website hosted on GitHub Pages!</p>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li tabindex="0">
+          <a href="community.html">Community ▼</a>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="events.html">What’s On</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Link to contact page, opens in a new tab -->
-  <a href="contact.html" target="_blank" rel="noopener noreferrer">Contact Us</a>
+  <main>
+    <h1>Welcome to Neuroway Network</h1>
+    <p>Your mission, vision, and introduction goes here.</p>
+  </main>
 
-  <!-- Or a button version -->
-  <!--
-  <button onclick="window.open('contact.html', '_blank')">Contact Us</button>
-  -->
+  <footer>
+    &copy; 2025 Neuroway Network — All rights reserved
+  </footer>
 </body>
 </html>
