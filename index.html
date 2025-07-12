@@ -1,19 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>My Simple Homepage</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neuroway Network</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f6f0; color: #4b3b28;
+    line-height: 1.6;
+  }
+  header {
+    background: #a6683d; /* warm brown */
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex; align-items: center;
+    gap: 1rem;
+  }
+  header img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  nav {
+    background: #bea378; /* soft gold */
+    display: flex;
+    justify-content: center;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+  nav li {
+    position: relative;
+  }
+  nav button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    color: #4b3b28;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  nav button:hover,
+  nav button.active {
+    background: #e6d8b5; /* lighter gold */
+  }
+  /* Dropdown styling */
+  nav li ul.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #bea378;
+    border-radius: 0 0 5px 5px;
+    display: none;
+    flex-direction: column;
+    min-width: 180px;
+    z-index: 1000;
+  }
+  nav li:hover > ul.dropdown {
+    display: flex;
+  }
+  nav li ul.dropdown li button {
+    padding: 0.75rem 1rem;
+    font-weight: normal;
+    width: 100%;
+    text-align: left;
+  }
+  nav li ul.dropdown li button:hover {
+    background: #e6d8b5;
+  }
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  section {
+    display: none;
+  }
+  section.active {
+    display: block;
+  }
+  h2 {
+    color: #a6683d;
+  }
+  /* Scroll area for content-heavy sections */
+  .scrollable {
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
+  /* Links styling */
+  a {
+    color: #99722f;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  /* Responsive */
+  @media (max-width: 600px) {
+    nav ul {
+      flex-direction: column;
+      gap: 0;
+    }
+    nav li ul.dropdown {
+      position: static;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    nav li:hover > ul.dropdown {
+      display: none;
+    }
+    nav li:focus-within > ul.dropdown,
+    nav li:active > ul.dropdown {
+      display: flex;
+    }
+  }
+</style>
 </head>
 <body>
-  <h1>Welcome to My Website</h1>
-  <p>This is my first website hosted on GitHub Pages!</p>
 
-  <!-- Link to contact page, opens in a new tab -->
-  <a href="contact.html" target="_blank" rel="noopener noreferrer">Contact Us</a>
+<header>
+  <img src="https://i.imgur.com/G8L9SpL.png" alt="Neuroway Network Logo" />
+  <h1>Neuroway Network</h1>
+</header>
 
-  <!-- Or a button version -->
-  <!--
-  <button onclick="window.open('contact.html', '_blank')">Contact Us</button>
-  -->
+<nav>
+  <ul>
+    <li><button class="tab-btn active" data-tab="about">About</button></li>
+    <li><button class="tab-btn" data-tab="contact">Contact</button></li>
+    <li><button class="tab-btn" data-tab="services">Services</button></li>
+    <li>
+      <button class="tab-btn" data-tab="resources">Resources ▼</button>
+      <ul class="dropdown">
+        <li><button class="tab-btn" data-tab="spotify">Spotify</button></li>
+        <li><button class="tab-btn" data-tab="sensory">Sensory Needs</button></li>
+        <li><button class="tab-btn" data-tab="books">Books</button></li>
+        <li><button class="tab-btn" data-tab="videos">Videos</button></li>
+        <li><button class="tab-btn" data-tab="courses">Courses</button></li>
+      </ul>
+    </li>
+    <li>
+      <button class="tab-btn" data-tab="community">Community ▼</button>
+      <ul class="dropdown">
+        <li><button class="tab-btn" data-tab="blogs">Blogs</button></li>
+        <li><button class="tab-btn" data-tab="whats-on">What’s On</button></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<main>
+  <!-- About -->
+  <section id="about" class="active">
+    <h2>About Neuroway Network</h2>
+    <p><strong>Our Mission:</strong> Neuroway Network is dedicated to empowering neurodivergent individuals by providing tailored support, education, and community connections that foster growth and wellbeing.</p>
+    <p><strong>About Me:</strong> I am the founder and lead practitioner of Neuroway Network, committed to integrating compassionate, evidence-based practices to support diverse neurodivergent needs.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Please use the following forms for referrals, complaints, and legislative codes.</p>
+    <ul>
+      <li><a href="https://example.com/referral-form.pdf" target="_blank" rel="noopener noreferrer">Referral Form (PDF)</a></li>
+      <li><a href="https://example.com/complaints-form.pdf" target="_blank" rel="noopener noreferrer">Complaints Form (PDF)</a></li>
+      <li><a href="https://example.com/codes-legislation.pdf" target="_blank" rel="noopener noreferrer">Codes & Legislations (PDF)</a></li>
+    </ul>
+    <p>For direct inquiries, you can <a href="mailto:contact@neurowaynetwork.com">email us here</a>.</p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Services</h2>
+    <div class="scrollable">
+      <p>Neuroway Network offers a range of services designed to meet diverse needs. If you don’t find a service here that fits, please contact us to discuss personalized options.</p>
+      <ul>
+        <li>Individualized neurodivergence assessments</li>
+        <li>Tailored support and mentoring</li>
+        <li>Workshops and educational programs</li>
+        <li>Community connection facilitation</li>
+        <li>Advocacy and resource navigation</li>
+      </ul>
+      <p>More services coming soon...</p>
+    </div>
+  </section>
+
+  <!-- Resources Subtabs -->
+  <section id="spotify">
+    <h2>Spotify Playlists</h2>
+    <div class="scrollable">
+      <p>Curated playlists designed for focus, relaxation, and sensory balance.</p>
+      <ul>
+        <li><a href="https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO" target="_blank" rel="noopener noreferrer">Focus Music</a></li>
+        <li><a href="https://open.spotify.com/playlist/37i9dQZF1DX3PIPIT6lEg5r" target="_blank" rel="noopener noreferrer">Relaxing Sounds</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="sensory">
+    <h2>Sensory Needs</h2>
+    <div class="scrollable">
+      <p>Resources and tools to support sensory processing differences.</p>
+      <ul>
+        <li><a href="https://www.sensoryprocessingdisorder.com/" target="_blank" rel="noopener noreferrer">Sensory Processing Disorder Info</a></li>
+        <li><a href="https://www.autism.org/sensory" target="_blank" rel="noopener noreferrer">Autism Sensory Guides</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="books">
+    <h2>Books</h2>
+    <div class="scrollable">
+      <p>Recommended reading on neurodivergence and personal growth.</p>
+      <ul>
+        <li><a href="https://www.goodreads.com/book/show/13553831-neurotribes" target="_blank" rel="noopener noreferrer">NeuroTribes by Steve Silberman</a></li>
+        <li><a href="https://www.goodreads.com/book/show/15898115-thinking-in-pictures" target="_blank" rel="noopener noreferrer">Thinking in Pictures by Temple Grandin</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="videos">
+    <h2>Videos</h2>
+    <div class="scrollable">
+      <p>Educational and inspirational videos.</p>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=QeZtYNbKHNw" target="_blank" rel="noopener noreferrer">Introduction to Neurodiversity</a></li>
+        <li><a href="https://www.youtube.com/watch?v=VG8fkEr-HTg" target="_blank" rel="noopener noreferrer">Sensory Processing Explained</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="courses">
+    <h2>Courses</h2>
+    <div class="scrollable">
+      <p>Online courses to expand understanding and skills.</p>
+      <ul>
+        <li><a href="https://www.coursera.org/learn/autism-spectrum-disorder" target="_blank" rel="noopener noreferrer">Autism Spectrum Disorder - Coursera</a></li>
+        <li><a href="https://www.udemy.com/course/autism-awareness/" target="_blank" rel="noopener noreferrer">Autism Awareness - Udemy</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Community Subtabs -->
+  <section id="blogs">
+    <h2>Blogs</h2>
+    <div class="scrollable">
+      <p>Latest articles and insights from the community.</p>
+      <ul>
+        <li><a href="https://neurowaynetwork.blog/post1" target="_blank" rel="noopener noreferrer">How to Advocate for Yourself</a></li>
+        <li><a href="https://neurowaynetwork.blog/post2" target="_blank" rel="noopener noreferrer">Sensory-Friendly Environments</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="whats-on">
+    <h2>What’s On</h2>
+    <div class="scrollable">
+      <p>Upcoming events, workshops, and meetups.</p>
+      <ul>
+        <li>Monthly support group - First Friday of every month</li>
+        <li>Workshop on sensory integration - July 20, 2025</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<script>
+  // Tab switching logic
+  const tabButtons = document.querySelectorAll('nav button.tab-btn');
+  const sections = document.querySelectorAll('main section');
+
+  function activateTab(tabId) {
+    sections.forEach(section => {
+      section.classList.toggle('active', section.id === tabId);
+    });
+    tabButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.tab === tabId);
+    });
+  }
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      activateTab(button.dataset.tab);
+    });
+  });
+</script>
+
 </body>
 </html>
+
